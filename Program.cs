@@ -26,8 +26,18 @@ namespace teste_delegate
             public ClasseTeste (Pessoa pessoa)=>Console.WriteLine("Entrou no construtor");
         }
 
+        // Função que retorna um delegate
+        static private CalculoEntreDoisNumeros criaDelegate()
+        {
+            return (x,y) => x + y;
+        }
+
         static void Main(string[] args)
         {
+            var delegateCriadoPorMetodo = criaDelegate();
+
+            Console.WriteLine($"Resultado: {delegateCriadoPorMetodo(3,2)}");
+
             // Contravariância  
             ClasseTeste classeteste = new ClasseTeste(new PessoaFisica());
             ClasseTeste classeteste2 = new ClasseTeste(new PessoaJuridica());
